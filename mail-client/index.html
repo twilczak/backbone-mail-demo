@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Backbone Mail Client</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<section id="mail-client">
+    <section id="sent">
+        <ol id="message-list"></ol>
+    </section>
+</section>
+
+<script type="text/template" id="message-list-item-template">
+    <div class="message-list-item">
+        <span class="recipient"><%- recipient %></span>
+        <span class="subject"><%- subject %></span>
+        <span class="date-sent"><%- dateSent %></span>
+    </div>
+</script>
+
+<script src="js/lib/jquery-2.1.0.js"></script>
+<script src="js/lib/underscore.js"></script>
+<script src="js/lib/backbone.js"></script>
+
+<script src="js/models/Message.js"></script>
+
+<script src="js/views/MessageListItemView.js"></script>
+<script src="js/views/MessageListView.js"></script>
+<script src="js/views/AppView.js"></script>
+
+<script src="js/index.js"></script>
+</body>
+</html>
