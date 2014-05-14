@@ -10,9 +10,9 @@ Simple Mail Client Demonstrating several backbone features.
    - **index.js**: initializes event bus to communicate between components 
    - **Router.js**: 
      1. Fires messages on event bus when hash state changes.
-     2. Responds to delete. 
-   - **AppView.js**: 
-   - **MessageReaderView.js**: responds to clearMessage events. 
+     2. Responds to delete (remove delete entry)
+   - **AppView.js**: move clearMessage to MessageReader
+   - **MessageReaderView.js**: responds to delete message events. 
    - **MessageListView.js**: still backed by collection, renders when a message is deleted.
  
 

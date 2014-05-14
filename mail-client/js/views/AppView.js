@@ -16,7 +16,6 @@ mail.views.AppView = Backbone.View.extend({
         this.messageControls = new mail.views.MessageControls(defaultOptions);
 
         this.listenTo(this.eventBus, 'showMessage', this.showMessage);
-        this.listenTo(this.eventBus, 'deleteMessage', this.deleteMessage);
 
         this.collection.fetch({
             reset: true,
@@ -31,13 +30,5 @@ mail.views.AppView = Backbone.View.extend({
         }else{
             this.eventBus.trigger('clearMessage');
         }
-    },
-
-    deleteMessage: function(id){
-        var message = this.collection.findWhere({id: id});
-        if(message){
-            message.destroy({ wait: true });
-        }
-        this.eventBus.trigger('clearMessage');
     }
 });

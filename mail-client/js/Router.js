@@ -23,5 +23,6 @@ mail.Router = Backbone.Router.extend({
 
     deleteMessage: function(param){
         this.eventBus.trigger('deleteMessage', param);
+        history.replaceState(null, null, '#');
     }
 });

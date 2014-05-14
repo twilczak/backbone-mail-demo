@@ -13,6 +13,7 @@ mail.views.MessageControls = Backbone.View.extend({
         this.deleteButton = this.$('#delete-button');
 
         this.listenTo(this.eventBus, 'showMessage', this.viewingMessage);
+        this.listenTo(this.eventBus, 'deleteMessage', this.messageCleared);
         this.listenTo(this.eventBus, 'clearMessage', this.messageCleared);
     },
 

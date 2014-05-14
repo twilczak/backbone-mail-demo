@@ -8,6 +8,7 @@ mail.views.MessageReaderView = Backbone.View.extend({
     initialize: function(options){
         this.eventBus = options.eventBus;
 
+        this.listenTo(this.eventBus, 'deleteMessage', this.deleteMessage);
         this.listenTo(this.eventBus, 'clearMessage', this.clear);
     },
 
@@ -19,6 +20,13 @@ mail.views.MessageReaderView = Backbone.View.extend({
     setModelAndRender: function(model){
         this.model = model;
         this.render();
+    },
+
+    deleteMessage: function(){
+        if(this.model){
+            this.model.destroy({ wait: true });
+        }
+        this.clear();
     },
 
     clear: function(){
