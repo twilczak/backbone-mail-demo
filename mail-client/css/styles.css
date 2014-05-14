@@ -8,7 +8,7 @@ html, body {
 #mail-client #sent{
     border-bottom: 1px solid black;
     margin: 0 10px;
-    height: 200px;
+    height: 170px;
     overflow-x: auto;
 }
 

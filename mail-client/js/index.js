@@ -1,6 +1,9 @@
 var mail = mail || {};
 
+$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+    options.crossDomain = { crossDomain: true };
+});
+
 $(function(){
-    var app = new mail.views.AppView();
-    app.render();
+    mail.App = new mail.views.AppView();
 });

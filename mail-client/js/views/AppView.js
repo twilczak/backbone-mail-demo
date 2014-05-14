@@ -6,10 +6,12 @@ mail.views.AppView = Backbone.View.extend({
     el: '#mail-client',
 
     initialize: function(options){
-        var message = new mail.models.Message(
-            { subject: 'Game of Thrones Season 4', recipient: 'SEK@avclub.com', dateSent: '2014.05.10' }
-        );
-        this.mailListView = new mail.views.MessageListView({model: message});
-        this.mailListView.render();
+        this.collection = new mail.collections.MessageCollection();
+        this.mailListView = new mail.views.MessageListView({ collection: this.collection });
+
+        this.collection.fetch({
+            reset: true,
+            error: function(){ console.log(arguments); }
+        });
     }
 });

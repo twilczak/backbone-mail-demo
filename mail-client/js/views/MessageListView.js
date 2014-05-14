@@ -6,11 +6,11 @@ mail.views.MessageListView = Backbone.View.extend({
     el: '#message-list',
 
     initialize: function(options){
-        this.model = options.model;
+        this.listenTo(this.collection, 'reset', this.renderMessages);
     },
 
-    render: function(){
-        this.renderMessage(this.model);
+    renderMessages: function(){
+        this.collection.each(this.renderMessage, this);
     },
 
     renderMessage: function(message){
