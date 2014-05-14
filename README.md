@@ -4,6 +4,18 @@ This is my Backbone Demo. There are many like it, but this one is mine.
 
 Simple Mail Client Demonstrating several backbone features.
 
+### v0.4.0 Additional Message Operations and Decoupling:
+
+   - **MessageControls.js**: controls toolbar state
+   - **index.js**: initializes event bus to communicate between components 
+   - **Router.js**: 
+     1. Fires messages on event bus when hash state changes.
+     2. Responds to delete. 
+   - **AppView.js**: 
+   - **MessageReaderView.js**: responds to clearMessage events. 
+   - **MessageListView.js**: still backed by collection, renders when a message is deleted.
+ 
+
 ### v0.3.0 Add Message Reader and Routing:
 
    - **MessageReaderView.js**: uses existing message model, but different template.

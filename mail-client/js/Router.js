@@ -3,20 +3,25 @@ var mail = mail || {};
 mail.Router = Backbone.Router.extend({
 
     initialize: function(options){
-        this.appView = options.appView;
+        this.eventBus = options.eventBus;
         Backbone.history.start();
     },
 
     routes:{
         '': 'clearMessage',
-        'message/:query': 'showMessage'
+        'message/:query': 'showMessage',
+        'deleteMessage/:query' : 'deleteMessage'
     },
 
     showMessage: function(param){
-        this.appView.showMessage(param);
+        this.eventBus.trigger('showMessage', param);
     },
 
     clearMessage: function(){
-        this.appView.clearMessage();
+        this.eventBus.trigger('clearMessage');
+    },
+
+    deleteMessage: function(param){
+        this.eventBus.trigger('deleteMessage', param);
     }
 });

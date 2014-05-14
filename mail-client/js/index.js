@@ -5,6 +5,8 @@ $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
 });
 
 $(function(){
-    mail.App = new mail.views.AppView();
-    mail.Router = new mail.Router({appView: mail.App});
+    var eventBus = _.extend({}, Backbone.Events);
+
+    mail.App = new mail.views.AppView({ eventBus: eventBus });
+    mail.Router = new mail.Router({ eventBus: eventBus });
 });

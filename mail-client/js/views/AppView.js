@@ -6,10 +6,17 @@ mail.views.AppView = Backbone.View.extend({
     el: '#mail-client',
 
     initialize: function(options){
+        var defaultOptions = {eventBus: options.eventBus};
+        this.eventBus = options.eventBus;
+
         this.collection = new mail.collections.MessageCollection();
         this.mailListView = new mail.views.MessageListView({ collection: this.collection });
 
-        this.mailReaderView = new mail.views.MessageReaderView();
+        this.mailReaderView = new mail.views.MessageReaderView(defaultOptions);
+        this.messageControls = new mail.views.MessageControls(defaultOptions);
+
+        this.listenTo(this.eventBus, 'showMessage', this.showMessage);
+        this.listenTo(this.eventBus, 'deleteMessage', this.deleteMessage);
 
         this.collection.fetch({
             reset: true,
@@ -22,11 +29,15 @@ mail.views.AppView = Backbone.View.extend({
         if(message){
             this.mailReaderView.setModelAndRender(message);
         }else{
-            this.mailReaderView.clear();
+            this.eventBus.trigger('clearMessage');
         }
     },
 
-    clearMessage: function(){
-        this.mailReaderView.clear();
+    deleteMessage: function(id){
+        var message = this.collection.findWhere({id: id});
+        if(message){
+            message.destroy({ wait: true });
+        }
+        this.eventBus.trigger('clearMessage');
     }
 });

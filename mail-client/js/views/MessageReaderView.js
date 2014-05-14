@@ -5,6 +5,12 @@ mail.views.MessageReaderView = Backbone.View.extend({
     el: '#message-reader',
     template: _.template( $('#message-reader-template').html() ),
 
+    initialize: function(options){
+        this.eventBus = options.eventBus;
+
+        this.listenTo(this.eventBus, 'clearMessage', this.clear);
+    },
+
     render: function(){
         this.$el.html( this.template( this.model.toJSON()) );
         return this;
@@ -16,7 +22,7 @@ mail.views.MessageReaderView = Backbone.View.extend({
     },
 
     clear: function(){
+        this.model = null;
         this.$el.html('');
     }
-
 });

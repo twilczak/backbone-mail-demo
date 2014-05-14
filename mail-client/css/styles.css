@@ -32,6 +32,12 @@ a {
     list-style-position: inside;
 }
 
+#message-controls {
+    float: left;
+    margin: 10px 40px 10px 10px;
+    max-width: 200px;
+}
+
 .message-list-item {
     padding: 5px;
     transition: background .25s;
@@ -45,20 +51,21 @@ a {
     border: 1px solid black;
 }
 
-.message-list-item span {
+.message-list-item span{
     display: inline-block;
     padding: 0 2px;
+}
+
+.message-list-item .date-sent {
+    width: 15%;
 }
 .message-list-item .recipient {
     border-right: 1px solid black;
     width: 24%;
 }
-.message-list-item .subject {
-    border-right: 1px solid black;
+.message-list-item .subject{
     width: 50%;
-}
-.message-list-item .date-sent {
-    width: 15%;
+    border-right: 1px solid black;
 }
 
 .message .recipient,
@@ -67,4 +74,26 @@ a {
 .message .body {
     padding: 5px;
     padding: 5px;
+}
+
+.button {
+    margin: 5px;
+    padding: 10px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    transition: background .25s;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.button:hover {
+    background: rgba(225, 225, 225, 0.5);
+}
+
+.button[disabled],
+.button[disabled]:hover{
+    border: 1px solid #afafaf;
+    color: #afafaf;
+    background: white;
 }
