@@ -7,31 +7,44 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<section id="mail-client">
-    <section id="sent">
-        <ol id="message-list"></ol>
+    <section id="mail-client">
+        <section id="sent">
+            <ol id="message-list"></ol>
+        </section>
+        <section id="message-reader"></section>
     </section>
-</section>
 
-<script type="text/template" id="message-list-item-template">
-    <div class="message-list-item">
-        <span class="recipient"><%- recipient %></span>
-        <span class="subject"><%- subject %></span>
-        <span class="date-sent"><%- dateSent %></span>
-    </div>
-</script>
+    <script type="text/template" id="message-list-item-template">
+        <a href="#message/<%- id %>" class="message-list-item">
+            <span class="recipient"><%- recipient %></span>
+            <span class="subject"><%- subject %></span>
+            <span class="date-sent"><%- dateSent %></span>
+        </a>
+    </script>
 
-<script src="js/lib/jquery-2.1.0.js"></script>
-<script src="js/lib/underscore.js"></script>
-<script src="js/lib/backbone.js"></script>
+    <script type="text/template" id="message-reader-template">
+        <div class="message">
+            <div class="recipient">to: <%- recipient %> </div>
+            <div class="date-sent">sent:  <%- dateSent %></div>
+            <div class="subject">subject: <%- subject %></div>
+            <div class="body"> <%- body %> </div>
+        </div>
+    </script>
 
-<script src="js/models/Message.js"></script>
-<script src="js/collections/MessageCollection.js"></script>
+    <script src="js/lib/jquery-2.1.0.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
 
-<script src="js/views/MessageListItemView.js"></script>
-<script src="js/views/MessageListView.js"></script>
-<script src="js/views/AppView.js"></script>
+    <script src="js/Router.js"></script>
 
-<script src="js/index.js"></script>
+    <script src="js/models/Message.js"></script>
+    <script src="js/collections/MessageCollection.js"></script>
+
+    <script src="js/views/MessageReaderView.js"></script>
+    <script src="js/views/MessageListItemView.js"></script>
+    <script src="js/views/MessageListView.js"></script>
+    <script src="js/views/AppView.js"></script>
+
+    <script src="js/index.js"></script>
 </body>
 </html>

@@ -6,4 +6,5 @@ $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
 
 $(function(){
     mail.App = new mail.views.AppView();
+    mail.Router = new mail.Router({appView: mail.App});
 });
