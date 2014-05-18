@@ -9,28 +9,33 @@
 <body>
     <section id="mail-client">
 
-        <section id="mailbox-controls">
-            <a class="button" id="inbox-button" disabled="disabled">Inbox</a>
-            <a class="button" id="sent-button" disabled="disabled">Sent</a>
-        </section>
-        <section id="mailbox">
-            <ol id="message-list"></ol>
+        <section id="mailbox-pane">
+            <div id="mailbox-controls">
+                <button class="button" id="inbox-button" disabled="disabled">Inbox</button>
+                <button class="button" id="sent-button" disabled="disabled">Sent</button>
+            </div>
+            <div id="mailbox">
+                <ol id="message-list"></ol>
+            </div>
         </section>
 
-        <section id="message-controls">
-            <a class="button" href="#composeMessage" id="compose-button" disabled="disabled">Compose</a>
-            <a class="button" href="#deleteMessage" id="delete-button" disabled="disabled">Delete</a>
-            <a class="button" href="#sendMessage" id="send-button" disabled="disabled">Send</a>
+        <section id="message-pane">
+            <div id="message-controls">
+                <button class="button" id="compose-button" disabled="disabled">Compose</button>
+                <button class="button" id="delete-button" disabled="disabled">Delete</button>
+                <button class="button" id="send-button" disabled="disabled">Send</button>
+            </div>
+            <div id="message-reader"></div>
         </section>
-        <section id="message-reader"></section>
+
     </section>
 
     <script type="text/template" id="message-list-item-template">
-        <a href="#message/<%- id %>" class="message-list-item">
+        <span class="message-list-item">
             <span class="recipient"><%- recipient %></span>
             <span class="subject"><%- subject %></span>
             <span class="date-sent"><%- dateSent %></span>
-        </a>
+        </span>
     </script>
 
     <script type="text/template" id="message-reader-template">
