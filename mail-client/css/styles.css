@@ -13,7 +13,7 @@ a {
 #mailbox{
     border-bottom: 1px solid black;
     margin: 0 10px;
-    height: 150px;
+    height: 200px;
     overflow-x: auto;
     border-radius: 2px;
 }
@@ -32,10 +32,11 @@ a {
     list-style-position: inside;
 }
 
-#message-controls {
+#message-controls,
+#mailbox-controls {
     float: left;
     margin: 10px 40px 10px 10px;
-    max-width: 200px;
+    width: 150px;
 }
 
 .message-list-item {
