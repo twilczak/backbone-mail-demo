@@ -10,7 +10,7 @@ a {
     text-decoration: none;
 }
 
-#mail-client #sent{
+#mailbox{
     border-bottom: 1px solid black;
     margin: 0 10px;
     height: 150px;
@@ -18,7 +18,7 @@ a {
     border-radius: 2px;
 }
 
-#mail-client #message-reader {
+#message-reader {
     margin:10px;
     overflow-x: auto;
     height: 350px;
