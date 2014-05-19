@@ -30,9 +30,17 @@
 
     </section>
 
-    <script type="text/template" id="message-list-item-template">
+    <script type="text/template" id="sent-message-list-item-template">
         <span class="message-list-item">
             <span class="recipient"><%- recipient %></span>
+            <span class="subject"><%- subject %></span>
+            <span class="date-sent"><%- dateSent %></span>
+        </span>
+    </script>
+
+    <script type="text/template" id="received-message-list-item-template">
+        <span class="message-list-item">
+            <span class="sender"><%- sender %></span>
             <span class="subject"><%- subject %></span>
             <span class="date-sent"><%- dateSent %></span>
         </span>
@@ -41,6 +49,7 @@
     <script type="text/template" id="message-reader-template">
         <div class="message">
             <div class="recipient">to: <%- recipient %> </div>
+            <div class="recipient">from: <%- sender %> </div>
             <div class="date-sent">sent:  <%- dateSent %></div>
             <div class="subject">subject: <%- subject %></div>
             <div class="body"> <%- body %> </div>
@@ -54,7 +63,8 @@
     <script src="js/Router.js"></script>
 
     <script src="js/models/Message.js"></script>
-    <script src="js/collections/MessageCollection.js"></script>
+    <script src="js/collections/InboxCollection.js"></script>
+    <script src="js/collections/OutboxCollection.js"></script>
 
     <script src="js/views/MessageControlsView.js"></script>
     <script src="js/views/MessageListItemView.js"></script>

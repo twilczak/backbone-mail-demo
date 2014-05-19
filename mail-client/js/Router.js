@@ -9,5 +9,8 @@ mail.Router = Backbone.Router.extend({
 
     routes:{
 
-    }
+    },
+
+    showInbox: function(){},
+    showOutbox: function(){}
 });

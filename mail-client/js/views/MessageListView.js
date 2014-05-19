@@ -7,6 +7,7 @@ mail.views.MessageListView = Backbone.View.extend({
 
     initialize: function(options){
         this.eventBus = options.eventBus;
+
         this.listenTo(this.collection, 'reset', this.renderMessages);
         this.listenTo(this.collection, 'remove', this.clearAndRenderMessages);
     },

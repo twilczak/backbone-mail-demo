@@ -3,7 +3,7 @@ mail.views = mail.views || {};
 
 mail.views.MessageListItemView = Backbone.View.extend({
     tagName: 'li',
-    template: _.template( $('#message-list-item-template').html() ),
+    template: _.template( $('#sent-message-list-item-template').html() ),
 
     initialize: function(options){
         this.eventBus = options.eventBus;

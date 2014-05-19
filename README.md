@@ -5,6 +5,7 @@ This is my Backbone Demo. There are many like it, but this one is mine.
 Simple Mail Client Demonstrating several backbone features.
 
 TODO: Add ability to view multiple mailboxes 
+ - add mailbox controls view - swap templates & collections
 
 ### v0.4.0 Additional Message Operations and Decoupling:
 
