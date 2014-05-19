@@ -16,6 +16,10 @@ a {
     margin: 0 10px;
 }
 
+#message-pane{
+    margin: 0 10px;
+}
+
 #mailbox{
     height: 200px;
     overflow-x: auto;
@@ -38,12 +42,8 @@ a {
 #mailbox-controls,
 #message-controls {
     float: left;
-    margin: 10px 40px 10px 10px;
+    margin: 10px 40px 10px 0;
     width: 150px;
-}
-
-#mailbox-controls {
-    margin-left: 0;
 }
 
 .message-list-item {

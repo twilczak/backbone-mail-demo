@@ -8,6 +8,7 @@ mail.views.MessageReaderView = Backbone.View.extend({
     initialize: function(options){
         this.eventBus = options.eventBus;
 
+        this.listenTo(this.eventBus, 'showMessage', this.showMessage);
         this.listenTo(this.eventBus, 'deleteMessage', this.deleteMessage);
         this.listenTo(this.eventBus, 'clearMessage', this.clear);
     },
@@ -17,7 +18,7 @@ mail.views.MessageReaderView = Backbone.View.extend({
         return this;
     },
 
-    setModelAndRender: function(model){
+    showMessage: function(model){
         this.model = model;
         this.render();
     },

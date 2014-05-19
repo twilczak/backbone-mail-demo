@@ -5,6 +5,10 @@ mail.views.MessageControls = Backbone.View.extend({
 
     el: '#message-controls',
 
+    events: {
+        'click #delete-button': 'deleteMessage'
+    },
+
     initialize: function(options){
         this.eventBus = options.eventBus;
 
@@ -17,21 +21,17 @@ mail.views.MessageControls = Backbone.View.extend({
         this.listenTo(this.eventBus, 'clearMessage', this.messageCleared);
     },
 
-    viewingMessage: function(id){
-        this.setDeleteTargetId(id);
+    viewingMessage: function(){
         this.deleteButton.removeAttr('disabled');
         this.sendButton.attr('disabled','disabled');
     },
 
     messageCleared: function(){
-        this.setDeleteTargetId();
         this.deleteButton.attr('disabled', 'disabled');
         this.sendButton.attr('disabled','disabled');
     },
 
-    setDeleteTargetId: function(id) {
-        var deleteTarget = '#deleteMessage';
-        deleteTarget += id ? '/' + id : '';
-        this.deleteButton.attr('href', deleteTarget);
+    deleteMessage: function(event){
+        this.eventBus.trigger('deleteMessage');
     }
 });

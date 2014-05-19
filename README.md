@@ -4,6 +4,8 @@ This is my Backbone Demo. There are many like it, but this one is mine.
 
 Simple Mail Client Demonstrating several backbone features.
 
+TODO: Add ability to view multiple mailboxes 
+
 ### v0.4.0 Additional Message Operations and Decoupling:
 
    - **MessageControls.js**: controls toolbar state

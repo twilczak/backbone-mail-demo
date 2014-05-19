@@ -8,21 +8,6 @@ mail.Router = Backbone.Router.extend({
     },
 
     routes:{
-        '': 'clearMessage',
-        'message/:query': 'showMessage',
-        'deleteMessage/:query' : 'deleteMessage'
-    },
 
-    showMessage: function(param){
-        this.eventBus.trigger('showMessage', param);
-    },
-
-    clearMessage: function(){
-        this.eventBus.trigger('clearMessage');
-    },
-
-    deleteMessage: function(param){
-        this.eventBus.trigger('deleteMessage', param);
-        history.replaceState(null, null, '#');
     }
 });
