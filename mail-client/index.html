@@ -15,7 +15,8 @@
                 <button class="button" id="sent-button" disabled="disabled">Sent</button>
             </div>
             <div id="mailbox">
-                <ol id="message-list"></ol>
+                <ol id="inbox"></ol>
+                <ol id="outbox"></ol>
             </div>
         </section>
 
@@ -30,7 +31,7 @@
 
     </section>
 
-    <script type="text/template" id="sent-message-list-item-template">
+    <script type="text/template" id="sent-message-template">
         <span class="message-list-item">
             <span class="recipient"><%- recipient %></span>
             <span class="subject"><%- subject %></span>
@@ -38,7 +39,7 @@
         </span>
     </script>
 
-    <script type="text/template" id="received-message-list-item-template">
+    <script type="text/template" id="received-message-template">
         <span class="message-list-item">
             <span class="sender"><%- sender %></span>
             <span class="subject"><%- subject %></span>
@@ -63,8 +64,7 @@
     <script src="js/Router.js"></script>
 
     <script src="js/models/Message.js"></script>
-    <script src="js/collections/InboxCollection.js"></script>
-    <script src="js/collections/OutboxCollection.js"></script>
+    <script src="js/collections/MessageCollection.js"></script>
 
     <script src="js/views/MessageControlsView.js"></script>
     <script src="js/views/MessageListItemView.js"></script>

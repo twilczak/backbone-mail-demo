@@ -8,9 +8,14 @@ mail.Router = Backbone.Router.extend({
     },
 
     routes:{
-
+        '' : 'showMailbox',
+        ':inbox' : 'showMailbox',
+        ':outbox': 'showMailbox'
     },
 
-    showInbox: function(){},
-    showOutbox: function(){}
+    showMailbox: function(id){
+        id = !id ? 'inbox' : id;
+        this.eventBus.trigger('showMailbox', { boxId: id });
+        this.eventBus.trigger('clearMessage');
+    }
 });

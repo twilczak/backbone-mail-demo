@@ -20,7 +20,7 @@ MailboxRequestHandler.prototype.POST = function(request, response) {
 
 MailboxRequestHandler.prototype.DELETE = function(request, response) {
     var parsedUrl = url.parse(request.url);
-    var id = parsedUrl.pathname.substring(parsedUrl.pathname.lastIndexOf('/'));
+    var id = parsedUrl.pathname.substring(parsedUrl.pathname.lastIndexOf('/')+1);
 
     this.mailbox.deleteMessage(id);
 
