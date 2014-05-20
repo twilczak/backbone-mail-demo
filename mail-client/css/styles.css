@@ -46,6 +46,11 @@ a {
     width: 150px;
 }
 
+#mailbox-controls{
+    width: 130px;
+    margin-right: 60px;
+}
+
 .message-list-item {
     padding: 5px;
     transition: background .25s;
@@ -95,7 +100,10 @@ a {
     width: 100%;
     display: block;
     text-align: center;
+    font-family: inherit;
+    font-size: inherit;
 }
+
 .button:hover {
     background: rgba(225, 225, 225, 0.5);
 }
