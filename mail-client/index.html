@@ -22,11 +22,12 @@
 
         <section id="message-pane">
             <div id="message-controls">
-                <button class="button" id="compose-button" disabled="disabled">Compose</button>
+                <button class="button" id="compose-button">Compose</button>
                 <button class="button" id="delete-button" disabled="disabled">Delete</button>
                 <button class="button" id="send-button" disabled="disabled">Send</button>
             </div>
             <div id="message-reader"></div>
+            <div id="message-composer"></div>
         </section>
 
     </section>
@@ -50,10 +51,18 @@
     <script type="text/template" id="message-reader-template">
         <div class="message">
             <div class="recipient">to: <%- recipient %> </div>
-            <div class="recipient">from: <%- sender %> </div>
+            <div class="sender">from: <%- sender %> </div>
             <div class="date-sent">sent:  <%- dateSent %></div>
             <div class="subject">subject: <%- subject %></div>
             <div class="body"> <%- body %> </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="message-composer-template">
+        <div class="new-message">
+            <div class="recipient">to: </div>
+            <div class="subject">subject: </div>
+            <div class="body">body: </div>
         </div>
     </script>
 
@@ -70,6 +79,7 @@
     <script src="js/views/MessageListItemView.js"></script>
     <script src="js/views/MessageListView.js"></script>
     <script src="js/views/MessageReaderView.js"></script>
+    <script src="js/views/MessageComposerView.js"></script>
     <script src="js/views/AppView.js"></script>
 
     <script src="js/index.js"></script>

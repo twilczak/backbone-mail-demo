@@ -10,6 +10,7 @@ mail.views.AppView = Backbone.View.extend({
         this.eventBus = options.eventBus;
 
         this.mailReaderView = new mail.views.MessageReaderView(defaultOptions);
+        this.mailComposerView = new mail.views.MessageComposerView(defaultOptions);
         this.messageControls = new mail.views.MessageControls(defaultOptions);
 
         this.outboxCollection = new mail.collections.MessageCollection({url: 'http://localhost:3000/outbox'});

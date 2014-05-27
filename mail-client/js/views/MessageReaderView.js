@@ -11,6 +11,7 @@ mail.views.MessageReaderView = Backbone.View.extend({
         this.listenTo(this.eventBus, 'showMessage', this.showMessage);
         this.listenTo(this.eventBus, 'deleteMessage', this.deleteMessage);
         this.listenTo(this.eventBus, 'clearMessage', this.clear);
+        this.listenTo(this.eventBus, 'composeMessage', this.hide);
     },
 
     render: function(){
@@ -19,6 +20,7 @@ mail.views.MessageReaderView = Backbone.View.extend({
     },
 
     showMessage: function(model){
+        this.show();
         this.model = model;
         this.render();
     },
@@ -33,5 +35,13 @@ mail.views.MessageReaderView = Backbone.View.extend({
     clear: function(){
         this.model = null;
         this.$el.html('');
+    },
+
+    show: function(){
+        this.$el.show();
+    },
+
+    hide: function(){
+        this.$el.hide();
     }
 });

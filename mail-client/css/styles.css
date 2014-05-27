@@ -25,7 +25,8 @@ a {
     overflow-x: auto;
 }
 
-#message-reader {
+#message-reader,
+#message-composer {
     margin:10px;
     overflow-x: auto;
     height: 350px;
@@ -83,12 +84,19 @@ a {
 }
 
 .message .recipient,
+.message .sender,
 .message .subject,
 .message .date-sent,
 .message .body {
     padding: 5px;
+}
+
+.new-message .recipient,
+.new-message .subject,
+.new-message .body {
     padding: 5px;
 }
+
 
 .button {
     margin: 5px;
