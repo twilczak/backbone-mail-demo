@@ -7,7 +7,8 @@ mail.views.MessageControls = Backbone.View.extend({
 
     events: {
         'click #delete-button': 'deleteMessage',
-        'click #compose-button': 'composeMessage'
+        'click #compose-button': 'composeMessage',
+        'click #send-button': 'sendMessage'
     },
 
     initialize: function(options){
@@ -37,8 +38,14 @@ mail.views.MessageControls = Backbone.View.extend({
     },
 
     composeMessage: function(){
+        this.sendButton.removeAttr('disabled');
         this.deleteButton.attr('disabled', 'disabled');
+
         var model = new mail.models.Message({sender: 'Me', dateSent: '2014.05.12'});
         this.eventBus.trigger('composeMessage', model);
+    },
+
+    sendMessage: function(){
+        this.eventBus.trigger('sendMessage');
     }
 });
