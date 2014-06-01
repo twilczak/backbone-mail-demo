@@ -10,6 +10,19 @@ a {
     text-decoration: none;
 }
 
+input,
+textarea {
+    display: block;
+    padding: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    border-bottom: 1px solid black;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    width: 100%;
+}
+
 #mailbox-pane{
     border-bottom: 1px solid black;
     border-radius: 2px;
@@ -89,6 +102,10 @@ a {
 .message .date-sent,
 .message .body {
     padding: 5px;
+}
+
+.new-message {
+   padding-right: 15px;
 }
 
 .new-message .recipient,
