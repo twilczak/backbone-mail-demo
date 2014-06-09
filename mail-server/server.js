@@ -8,7 +8,7 @@ function setCorsHeaders(response){
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Request-Method', '*');
     response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, DELETE, POST');
-    response.setHeader('Access-Control-Allow-Headers', '*');
+    response.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
 }
 
 var messageHandlers = {

@@ -13,9 +13,21 @@ MailboxRequestHandler.prototype.OPTIONS = function(request, response){
 };
 
 MailboxRequestHandler.prototype.POST = function(request, response) {
-    console.log(request);
-    response.writeHead(200);
-    response.end();
+    var message = '';
+    var mailbox = this.mailbox;
+
+    request.on('data', function(chunk){message += chunk;});
+    request.on('end', function(){
+        var msgObj = JSON.parse(message);
+
+        mailbox.createMessage(
+            msgObj.sender, msgObj.recipient, msgObj.dateSent,
+            msgObj.subject, msgObj.body
+        );
+
+        response.writeHead(200);
+        response.end();
+    });
 };
 
 MailboxRequestHandler.prototype.DELETE = function(request, response) {

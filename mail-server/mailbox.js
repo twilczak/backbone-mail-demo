@@ -8,12 +8,12 @@ function Mailbox(){
     this.messages = [];
 };
 
-Mailbox.prototype.createMessage = function(sender, recipient, date, subject){
+Mailbox.prototype.createMessage = function(sender, recipient, date, subject, body){
     var message = {
         id : uuid.v4(),
         sender: sender, recipient: recipient,
         dateSent: date, subject: subject,
-        body: loremIpsum({count: 25})
+        body: body || loremIpsum({count: 25})
     };
 
     this.messages.push(message);
