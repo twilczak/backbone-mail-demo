@@ -18,7 +18,7 @@ Simple Mail Client Demonstrating several backbone features.
 ### v0.4.0 Additional Message Operations and Decoupling:
 
    - **MessageControls.js**: controls toolbar state
-   - **index.js**: initializes event busgi to communicate between components 
+   - **index.js**: initializes event bus to communicate between components 
    - **Router.js**: 
      1. Fires messages on event bus when hash state changes.
      2. Responds to delete (remove delete entry)
