@@ -9,10 +9,6 @@ mail.views.AppView = Backbone.View.extend({
         var defaultOptions = {eventBus: options.eventBus};
         this.eventBus = options.eventBus;
 
-        this.mailReaderView = new mail.views.MessageReaderView(defaultOptions);
-        this.mailComposerView = new mail.views.MessageComposerView(defaultOptions);
-        this.messageControls = new mail.views.MessageControls(defaultOptions);
-
         this.outboxCollection = new mail.collections.MessageCollection({url: 'http://localhost:3000/outbox'});
         var sentMessageTemplate = _.template($('#sent-message-template').html());
         this.outboxView = new mail.views.MessageListView(
@@ -24,5 +20,9 @@ mail.views.AppView = Backbone.View.extend({
         this.inboxView = new mail.views.MessageListView(
             { eventBus: this.eventBus, el: '#inbox', collection: this.inboxCollection, messageTemplate: receivedMessageTemplate}
         );
+
+        this.mailComposerView = new mail.views.MessageComposerView({eventBus: this.eventBus, outboxCollection: this.outboxCollection});
+        this.mailReaderView = new mail.views.MessageReaderView(defaultOptions);
+        this.messageControls = new mail.views.MessageControls(defaultOptions);
     }
 });

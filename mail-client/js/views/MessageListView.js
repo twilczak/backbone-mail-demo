@@ -11,6 +11,7 @@ mail.views.MessageListView = Backbone.View.extend({
 
         this.listenTo(this.collection, 'reset', this.renderMessages);
         this.listenTo(this.collection, 'remove', this.clearAndRenderMessages);
+        this.listenTo(this.collection, 'add', this.clearAndRenderMessages);
     },
 
     showMailbox: function(event){

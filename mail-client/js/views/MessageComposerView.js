@@ -6,11 +6,12 @@ mail.views.MessageComposerView = Backbone.View.extend({
     template: _.template( $('#message-composer-template').html() ),
 
     events:{
-        'keyup input,textarea': 'updateModel'
+        'keyup input,textarea': 'clearErrorsAndUpdateModel'
     },
 
     initialize: function(options){
         this.eventBus = options.eventBus;
+        this.outboxCollection = options.outboxCollection;
 
         this.listenTo(this.eventBus, 'showMessage', this.hide);
         this.listenTo(this.eventBus, 'sendMessage', this.send);
@@ -42,6 +43,11 @@ mail.views.MessageComposerView = Backbone.View.extend({
         this.render();
     },
 
+    clearErrorsAndUpdateModel: function(event){
+        this.clearValidationErrors();
+        this.updateModel(event);
+    },
+
     updateModel: function(event){
         var id = event.target.id,
             attribute = id.replace(/message-composer-/, '');
@@ -51,8 +57,29 @@ mail.views.MessageComposerView = Backbone.View.extend({
     },
 
     send: function(){
-        var errors = this.model.validate();
-        console.log(errors);
+        this.clearValidationErrors();
+        if(!this.model.isValid()){
+            this.showValidationErrors(this.model.validationError);
+        }else{
+            this.model.url = this.outboxCollection.url;
+            this.model.save(null, {
+                    success: _.bind(function(collection, model, options){
+                        this.outboxCollection.add(model);
+                    }, this),
+                    failure: function(){console.log(arguments);}
+                }
+            );
+            this.eventBus.trigger('clearMessage');
+        }
+    },
 
+    clearValidationErrors: function(){
+        this.$el.find('input,textarea').removeClass('error');
+    },
+
+    showValidationErrors: function(validationErrors){
+        _.chain(validationErrors).keys().each(_.bind(function(property){
+            this.$el.find('#message-composer-' + property).addClass('error');
+        }, this));
     }
 });
