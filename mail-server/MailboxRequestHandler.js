@@ -20,12 +20,13 @@ MailboxRequestHandler.prototype.POST = function(request, response) {
     request.on('end', function(){
         var msgObj = JSON.parse(message);
 
-        mailbox.createMessage(
+        msgObj = mailbox.createMessage(
             msgObj.sender, msgObj.recipient, msgObj.dateSent,
             msgObj.subject, msgObj.body
         );
 
-        response.writeHead(200);
+        response.writeHead(200, {'content-type': 'application/json'});
+        response.write(JSON.stringify(msgObj));
         response.end();
     });
 };

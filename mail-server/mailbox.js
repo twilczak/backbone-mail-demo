@@ -17,7 +17,7 @@ Mailbox.prototype.createMessage = function(sender, recipient, date, subject, bod
     };
 
     this.messages.push(message);
-    return this.message;
+    return message;
 };
 
 Mailbox.prototype.deleteMessage = function(id){
