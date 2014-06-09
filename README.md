@@ -4,8 +4,13 @@ This is my Backbone Demo. There are many like it, but this one is mine.
 
 Simple Mail Client Demonstrating several backbone features.
 
-TODO: complete message composition, validation & send features.
-
+### v0.6.0 Message compositions
+   - **Message.js**: performs validation
+   - **MessageComposer.js**: Controls message composition
+     1. Update model on keyboard input
+     2. Display validation errors on message composition
+     3. Submit message to server.
+   
 ### v0.5.0 Multiple mailboxes
    - Move show/delete functionality from Router
    - Add ability to view multiple mailboxes 
