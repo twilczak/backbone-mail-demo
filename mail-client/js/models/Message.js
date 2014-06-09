@@ -22,6 +22,6 @@ mail.models.Message = Backbone.Model.extend({
             errors.recipient = 'Recipient is required';
         }
 
-        return errors.isEmpty? undefined : errors;
+        return _(errors).isEmpty() ? undefined : errors;
     }
 });
