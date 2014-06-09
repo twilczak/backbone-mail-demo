@@ -23,6 +23,15 @@ textarea {
     width: 100%;
 }
 
+input.error,
+textarea.error {
+    border-bottom-color: red;
+}
+
+.error::-webkit-input-placeholder{
+    color: rgba(255, 0, 0, 0.6);
+}
+
 #mailbox-pane{
     border-bottom: 1px solid black;
     border-radius: 2px;
